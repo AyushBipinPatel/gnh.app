@@ -20,8 +20,7 @@ attachment::att_amend_desc()
 
 ## Add modules ----
 ## Create a module infrastructure in R/
-golem::add_module(name = "name_of_module1", with_test = TRUE) # Name of the module
-golem::add_module(name = "name_of_module2", with_test = TRUE) # Name of the module
+golem::add_module(name = "landing_page", with_test = FALSE) # landing_page is the module for the landing page of the app
 
 ## Add helper functions ----
 ## Creates fct_* and utils_*
@@ -37,7 +36,7 @@ golem::add_sass_file("custom")
 
 ## Add internal datasets ----
 ## If you have data in your package
-usethis::use_data_raw(name = "my_dataset", open = FALSE)
+usethis::use_data_raw(name = "prepare_data", open = FALSE)
 
 ## Tests ----
 ## Add one line by test you want to create
