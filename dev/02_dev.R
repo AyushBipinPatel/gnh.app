@@ -26,7 +26,7 @@ golem::add_module(name = "", with_test = FALSE) #
 ## Creates fct_* and utils_*
 golem::add_fct("helpers", with_test = TRUE)
 golem::add_utils("helpers", with_test = TRUE)
-golem::add_fct("add_landing_page_info", with_test = FALSE) # this fucntion will return html output for the landing page, it will contain text and images of needed.
+golem::add_fct("add_landing_page_info", with_test = FALSE) # this function will return html output for the landing page, it will contain text and images of needed.
 
 ## External resources
 ## Creates .js and .css files at inst/app/www
