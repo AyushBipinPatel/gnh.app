@@ -20,7 +20,7 @@ attachment::att_amend_desc()
 
 ## Add modules ----
 ## Create a module infrastructure in R/
-golem::add_module(name = "", with_test = FALSE) #
+golem::add_module(name = "landing_page", with_test = FALSE) # moduke to add text and domain and indicator snakey chart
 
 ## Add helper functions ----
 ## Creates fct_* and utils_*
