@@ -32,7 +32,10 @@ app_ui <- function(request) {
                                           mod_contribution_indicators_national_ui("contribution_indicators_national_1")
                           )
 
-                          )
+                          ),
+        shiny::tabPanel(title = "District Level Report",
+                        mod_district_report_ui("district_report_1")
+                        )
 
         )
     )
