@@ -26,6 +26,8 @@ golem::add_module(name = "primary_measures_national", with_test = FALSE) # modul
 golem::add_module(name = "sufficiency_indicators_national", with_test = FALSE) # A module to show the uncensored and censored headcount ratios of sufficiency in indicators.
 golem::add_module(name = "contribution_indicators_national", with_test = FALSE) # A module to show the contribution of indicators to GNH at national level
 golem::add_module(name = "district_report", with_test = FALSE) # A module to present district report
+golem::add_module(name = "d_comp_primary_measures", with_test = FALSE) # A module to provide comparative view of primary measures
+
 
 ## Add helper functions ----
 ## Creates fct_* and utils_*

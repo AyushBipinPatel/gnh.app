@@ -33,6 +33,11 @@ app_server <- function(input, output, session) {
   mod_district_report_server("district_report_1")
 
 
+  # District comparison primary measures ------------------------------------
+
+  mod_d_comp_primary_measures_server("d_comp_primary_measures_1")
+
+
 
 
 

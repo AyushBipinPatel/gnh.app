@@ -35,7 +35,15 @@ app_ui <- function(request) {
                           ),
         shiny::tabPanel(title = "District Level Report",
                         mod_district_report_ui("district_report_1")
-                        )
+                        ),
+        shiny::navbarMenu(title = "District Comparisons",
+                          shiny::tabPanel(title = "Primary Measure - District Comparison",
+                                          mod_d_comp_primary_measures_ui("d_comp_primary_measures_1")
+                                          ),
+                          shiny::tabPanel(title = "Sufficiency in Indicators - District Comparison"),
+                          shiny::tabPanel(title = "Contribution of Indicators - District Comparison"),
+
+                          )
 
         )
     )
