@@ -23,5 +23,10 @@ app_server <- function(input, output, session) {
   mod_sufficiency_indicators_national_server("sufficiency_indicators_national_1")
 
 
+  # National contribution to GNH --------------------------------------------
+
+  mod_contribution_indicators_national_server("contribution_indicators_national_1")
+
+
 
 }
