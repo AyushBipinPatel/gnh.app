@@ -44,11 +44,11 @@ mod_sufficiency_indicators_national_ui <- function(id){
           shiny::actionButton(inputId = ns("si_submit"),
                               label = "Apply Changes"),
           shiny::tags$hr(),
-          shiny::tags$small("By default the indicators are arranged as per domains in the chart. Trun off the below switch to rearrange the chart in decreasing order."),
+          shiny::tags$small("By default the indicators are arranged as per domains in the chart. Toggle the below switch to rearrange the chart in decreasing order."),
           shiny::tags$br(),
           shinyWidgets::materialSwitch(
             inputId = ns("arrange"),
-            label = "Trun on/off to change order",
+            label = "Toggle to change order",
             value = TRUE,
             status = "primary"
           ),
@@ -106,6 +106,7 @@ mod_sufficiency_indicators_national_server <- function(id){
        },
         x_axis = "ind_lab",
         y_axis = "b",
+        colors = "ind_col",
         title = paste0(chart_measure_title," for GNH indicators"),
         flname = paste0(chart_measure_title," for GNH indicators"), # same as the chart title as it would make sense to save a chart by its title
         tooltip = paste("Measure : ",chart_measure_title,"<br>Measure Value : {point.y}%<br>Survey : {point.survey} <br>Survey Year : {point.year}"),
