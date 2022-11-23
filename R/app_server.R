@@ -38,6 +38,11 @@ app_server <- function(input, output, session) {
   mod_d_comp_primary_measures_server("d_comp_primary_measures_1")
 
 
+  # District comparison sufficiency in indicators ---------------------------
+
+  mod_d_comp_sufficiency_indicators_server("d_comp_sufficiency_indicators_1")
+
+
 
 
 

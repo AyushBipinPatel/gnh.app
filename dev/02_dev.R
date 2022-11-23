@@ -27,7 +27,7 @@ golem::add_module(name = "sufficiency_indicators_national", with_test = FALSE) #
 golem::add_module(name = "contribution_indicators_national", with_test = FALSE) # A module to show the contribution of indicators to GNH at national level
 golem::add_module(name = "district_report", with_test = FALSE) # A module to present district report
 golem::add_module(name = "d_comp_primary_measures", with_test = FALSE) # A module to provide comparative view of primary measures
-
+golem::add_module(name = "d_comp_sufficiency_indicators", with_test = FALSE) # A module to provide comparative view of sufficiency of indicators
 
 ## Add helper functions ----
 ## Creates fct_* and utils_*
