@@ -27,6 +27,9 @@ app_ui <- function(request) {
                                           ),
                           shiny::tabPanel(title = "Sufficiency in Indicators",
                                           mod_sufficiency_indicators_national_ui("sufficiency_indicators_national_1")
+                          ),
+                          shiny::tabPanel(title = "Contribution to happiness",
+                                          mod_contribution_indicators_national_ui("contribution_indicators_national_1")
                           )
 
                           )
