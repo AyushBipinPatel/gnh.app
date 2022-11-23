@@ -111,7 +111,7 @@ gnh_links$ln_grp <- c(rep("a",9),rep("b",4),
 # get data,clean and create sysobject -------------------------------------
 
 
-gnh_data <- readr::read_csv(here("data-raw/gnh_2015_all_measures.csv"),
+gnh_data <- readr::read_csv(here("data-raw/corrected_gnh_2015_all_measures.csv"),
                             col_select = c(1:23))
 
 # remove empty rows
@@ -168,7 +168,7 @@ gnh_data_mod_primary_measures |>
 # ~~~~~~~~~~~~~~~~ sufficiency in indicators at national level
 
 gnh_data |>
-  filter(measure_lab %in% sort(unique(gnh_data$measure_lab))[c(6,35,37)] &
+  filter(measure_lab %in% sort(unique(gnh_data$measure_lab))[c(6,36)] &
                   area_lab %in% c("National", "Urban", "Rural"))|>
   mutate(
     b = b*100
