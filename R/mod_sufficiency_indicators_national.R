@@ -80,11 +80,11 @@ mod_sufficiency_indicators_national_server <- function(id){
 
     sel_si_measures <- shiny::eventReactive(input$si_submit,{
       input$si_measure
-    })
+    },ignoreNULL = F)
 
     sel_si_area <- shiny::eventReactive(input$si_submit,{
       input$si_area
-    })
+    },ignoreNULL = F)
 
     output$bar <- highcharter::renderHighchart({
       chart_measure_title <- switch(
@@ -125,11 +125,12 @@ mod_sufficiency_indicators_national_server <- function(id){
                      "Urban Censored headcount ratio (%)",
                      "Rural Uncensored headcount ratio (%)",
                      "Urban Uncensored headcount rati0 (%)",
+                     "National Censored headcount ratio (%)",
                      "National Uncensored headcount ratio (%)"),
         filter = list(position = 'top', clear = FALSE),
 
         options = list(
-          pageLength = 25,
+          pageLength = 33,
           columnDefs = list(list(className = 'dt-center', targets = "_all")),
           autoWidth = TRUE
         ),
