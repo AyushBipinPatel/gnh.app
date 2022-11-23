@@ -24,7 +24,10 @@ app_ui <- function(request) {
 
                           shiny::tabPanel(title = "GNH - Primary Measures",
                                           mod_primary_measures_national_ui("primary_measures_national_1")
-                                          )
+                                          ),
+                          shiny::tabPanel(title = "Sufficiency in Indicators",
+                                          mod_sufficiency_indicators_national_ui("sufficiency_indicators_national_1")
+                          )
 
                           )
 
