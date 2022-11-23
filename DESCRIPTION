@@ -12,6 +12,7 @@ Imports:
     config (>= 0.3.1),
     golem (>= 0.3.3),
     magrittr,
+    networkD3,
     shiny (>= 1.7.2)
 Encoding: UTF-8
 LazyData: true
