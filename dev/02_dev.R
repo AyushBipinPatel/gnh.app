@@ -23,7 +23,8 @@ usethis::use_pipe(export = F)
 ## Create a module infrastructure in R/
 golem::add_module(name = "landing_page", with_test = FALSE) # module to add text and domain and indicator snakey chart
 golem::add_module(name = "primary_measures_national", with_test = FALSE) # module to present primary measures of the GNH at national level
-golem::add_module(name = "sufficiency_indicators_national", with_test = FALSE) # A module to showw the uncensored and censored headcount ratios of sufficiency in indicators.
+golem::add_module(name = "sufficiency_indicators_national", with_test = FALSE) # A module to show the uncensored and censored headcount ratios of sufficiency in indicators.
+golem::add_module(name = "contribution_indicators_national", with_test = FALSE) # A module to show the contribution of indicators to GNH at national level
 
 
 ## Add helper functions ----
@@ -32,7 +33,7 @@ golem::add_fct("helpers", with_test = TRUE)
 golem::add_utils("helpers", with_test = TRUE)
 golem::add_fct("add_landing_page_info", with_test = FALSE) # this function will return html output for the landing page, it will contain text and images of needed.
 golem::add_fct("hch_simple_column_chart", with_test = FALSE) # function to create a simple column chart
-
+golem::add_fct("hch_simple_pie_chart", with_test = FALSE) # function to create a simple pi chart
 
 ## External resources
 ## Creates .js and .css files at inst/app/www
