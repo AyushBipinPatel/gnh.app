@@ -169,7 +169,10 @@ gnh_data_mod_primary_measures |>
 
 gnh_data |>
   filter(measure_lab %in% sort(unique(gnh_data$measure_lab))[c(6,35,37)] &
-                  area_lab %in% c("National", "Urban", "Rural")) -> gnh_data_mod_sufficiency_in_indicators
+                  area_lab %in% c("National", "Urban", "Rural"))|>
+  mutate(
+    b = b*100
+    )-> gnh_data_mod_sufficiency_in_indicators
 
 
 
