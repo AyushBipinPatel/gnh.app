@@ -5,17 +5,26 @@ Authors@R:
     person("Ayush", "Patel", , "ayush.ap58@gmail.com", role = c("cre", "aut"))
 Description: This is a golem app that presents the results of the Bhutan
     Gross National Happiness Survey.
-License: What license is it under?
+License: MIT + file LICENSE
 URL: https://github.com/AyushBipinPatel/bhutan-gnh-app
 BugReports: https://github.com/AyushBipinPatel/bhutan-gnh-app/issues
+Depends: 
+    R (>= 2.10)
 Imports: 
+    bslib,
     config (>= 0.3.1),
+    dplyr,
+    DT,
+    ggplot2,
     golem (>= 0.3.3),
+    highcharter,
+    htmltools,
     magrittr,
     networkD3,
-    shiny (>= 1.7.2)
+    shiny (>= 1.7.2),
+    shinyWidgets,
+    stringr,
+    tidyr
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.1
-Depends: 
-    R (>= 2.10)
