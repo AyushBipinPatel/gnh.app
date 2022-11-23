@@ -202,6 +202,29 @@ gnh_data |>
 gnh_data_mod_sufficiency_in_indicators|>
   left_join(indi_col, by = c("ind_lab" = "ind")) -> gnh_data_mod_sufficiency_in_indicators
 
+gnh_data |>
+  filter(measure_lab %in% sort(unique(gnh_data$measure_lab))[c(6,34)] &
+           !is.na(region_lab))|>
+  mutate(
+    b = b*100
+  ) -> gnh_data_mod_sufficiency_in_indicators_district_overview
+
+gnh_data_mod_sufficiency_in_indicators_district_overview |>
+  left_join(
+    indi_col, by = c("ind_lab" = "ind")
+  )|>
+  left_join(
+    gnh_data |>
+      filter(measure_lab == "Population share" &
+               !is.na(region_lab))|>
+      select(region_lab,share_val=b)|>
+      distinct()|>
+      mutate(
+        share_val = share_val*100
+      ),
+    by = c("region_lab" = "region_lab")
+  )-> gnh_data_mod_sufficiency_in_indicators_district_overview
+
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~contribution of indicators to happiness
@@ -218,6 +241,30 @@ gnh_data |>
 
 gnh_data_mod_contribution_indicators_national|>
   left_join(indi_col, by = c("ind_lab" = "ind")) -> gnh_data_mod_contribution_indicators_national
+
+
+gnh_data |>
+  filter(measure_lab %in% c("Absolute contribution (suf. adj)",
+                            "Relative contribution (suf. adj)" ) &
+           !is.na(region_lab))|>
+  mutate(
+    b = b*100
+  ) -> gnh_data_mod_contribution_indicators_district_overview
+
+
+gnh_data_mod_contribution_indicators_district_overview|>
+  left_join(indi_col, by = c("ind_lab" = "ind"))|>
+  left_join(
+    gnh_data |>
+      filter(measure_lab == "Population share" &
+               !is.na(region_lab))|>
+      select(region_lab,share_val=b)|>
+      distinct()|>
+      mutate(
+        share_val = share_val*100
+      ),
+    by = c("region_lab" = "region_lab")
+    )-> gnh_data_mod_contribution_indicators_district_overview
 
 
 
