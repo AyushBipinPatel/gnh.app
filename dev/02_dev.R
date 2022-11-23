@@ -17,16 +17,20 @@
 ## Amend DESCRIPTION with dependencies read from package code parsing
 ## install.package('attachment') # if needed.
 attachment::att_amend_desc()
+usethis::use_pipe(export = F)
 
 ## Add modules ----
 ## Create a module infrastructure in R/
-golem::add_module(name = "landing_page", with_test = FALSE) # moduke to add text and domain and indicator snakey chart
+golem::add_module(name = "landing_page", with_test = FALSE) # module to add text and domain and indicator snakey chart
+golem::add_module(name = "primary_measures_national", with_test = FALSE) # module to present primary measures of the GNH at national level
 
 ## Add helper functions ----
 ## Creates fct_* and utils_*
 golem::add_fct("helpers", with_test = TRUE)
 golem::add_utils("helpers", with_test = TRUE)
 golem::add_fct("add_landing_page_info", with_test = FALSE) # this function will return html output for the landing page, it will contain text and images of needed.
+golem::add_fct("hch_simple_column_chart", with_test = FALSE)
+
 
 ## External resources
 ## Creates .js and .css files at inst/app/www
