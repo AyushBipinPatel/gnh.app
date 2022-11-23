@@ -18,6 +18,7 @@
 ## install.package('attachment') # if needed.
 attachment::att_amend_desc()
 usethis::use_pipe(export = F)
+usethis::use_package("networkD3")
 
 ## Add modules ----
 ## Create a module infrastructure in R/

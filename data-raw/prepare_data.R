@@ -301,6 +301,7 @@ jsonlite::read_json("data-raw/btn_use_for_highchart.geojson") -> btn_poly_json
 
 usethis::use_data(gnh_links,
                   gnh_nodes,
+                  gnh_data,
                   gnh_data_mod_primary_measures,
                   gnh_data_mod_primay_measures_district_overview,
                   gnh_data_mod_sufficiency_in_indicators,
