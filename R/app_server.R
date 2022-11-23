@@ -12,4 +12,10 @@ app_server <- function(input, output, session) {
 
   mod_landing_page_server("landing_page_1")
 
+
+  # National primary measures server logic ----------------------------------
+
+  mod_primary_measures_national_server("primary_measures_national_1")
+
+
 }
