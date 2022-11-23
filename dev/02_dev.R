@@ -34,7 +34,7 @@ golem::add_utils("helpers", with_test = TRUE)
 golem::add_fct("add_landing_page_info", with_test = FALSE) # this function will return html output for the landing page, it will contain text and images of needed.
 golem::add_fct("hch_simple_column_chart", with_test = FALSE) # function to create a simple column chart
 golem::add_fct("hch_simple_pie_chart", with_test = FALSE) # function to create a simple pi chart
-
+golem::add_fct("hch_map", with_test = FALSE) # function to create choropleths
 ## External resources
 ## Creates .js and .css files at inst/app/www
 golem::add_js_file("script")

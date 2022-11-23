@@ -153,9 +153,6 @@ gnh_data|>
 
 
 
-
-
-
 gnh_data_mod_primary_measures |>
   left_join(
     gnh_data |>
@@ -169,6 +166,28 @@ gnh_data_mod_primary_measures |>
       add_row(area_lab = "National",measure_lab ="Population share",share_val= 100),
     by = c("area_lab" = "area_lab")
   ) -> gnh_data_mod_primary_measures
+
+
+gnh_data|>
+  filter(measure_lab %in% c("GNH (suf)", "Headcount ratio (suf)",
+                            "Intensity (suf)") & !is.na(region_lab))|>
+  mutate(
+    b =  ifelse(measure_lab == "GNH (suf)",
+                b, b*100)
+  ) -> gnh_data_mod_primay_measures_district_overview
+
+gnh_data_mod_primay_measures_district_overview |>
+  left_join(
+    gnh_data |>
+      filter(measure_lab == "Population share" &
+               !is.na(region_lab))|>
+      select(region_lab,share_val=b)|>
+      distinct()|>
+      mutate(
+        share_val = share_val*100
+      ),
+    by = c("region_lab" = "region_lab")
+  ) -> gnh_data_mod_primay_measures_district_overview
 
 
 # ~~~~~~~~~~~~~~~~ sufficiency in indicators at national level
@@ -202,11 +221,41 @@ gnh_data_mod_contribution_indicators_national|>
 
 
 
+# handle shp files and get to geojson format ------------------------------
+
+
+readRDS("data-raw/gadm36_BTN_1_sf.rds") |>
+  mutate(
+    NAME_1 = case_when(
+      NAME_1 == "Chhukha" ~ "Chukha",
+      NAME_1 == "Lhuentse" ~ "Lhuntse",
+      NAME_1 == "Monggar" ~ "Mongar",
+      NAME_1 == "Pemagatshel" ~ "Pema Gatshel",
+      NAME_1 == "Samdrupjongkhar" ~ "Samdrup Jongkhar",
+      NAME_1 == "Trashigang" ~ "Tashigang",
+      NAME_1 == "Yangtse" ~ "Tashi Yangtse",
+      NAME_1 == "Wangduephodrang" ~ "Wangdue Phodrang",
+      TRUE ~ NAME_1
+    )
+  )|>
+  rename(region_shp = NAME_1, iso = GID_0)|>select(
+    iso,region_shp,geometry
+  )|>
+  sf::write_sf("data-raw/btn_shp_use_this_to_convert_to_json.shp")
+
+geojsonio::file_to_geojson("data-raw/btn_shp_use_this_to_convert_to_json.shp",
+                           method = "local",
+                           output = "data-raw/btn_use_for_highchart")
+
+jsonlite::read_json("data-raw/btn_use_for_highchart.geojson") -> btn_poly_json
+
 # write objects in sys data -----------------------------------------------
 
 
 usethis::use_data(gnh_links,
                   gnh_nodes,
                   gnh_data_mod_primary_measures,
+                  gnh_data_mod_primay_measures_district_overview,
                   gnh_data_mod_sufficiency_in_indicators,
+                  btn_poly_json,
                   overwrite = TRUE,internal = T)
