@@ -28,5 +28,12 @@ app_server <- function(input, output, session) {
   mod_contribution_indicators_national_server("contribution_indicators_national_1")
 
 
+  # District report server logic --------------------------------------------
+
+  mod_district_report_server("district_report_1")
+
+
+
+
 
 }
