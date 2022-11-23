@@ -108,6 +108,12 @@ gnh_links$ln_grp <- c(rep("a",9),rep("b",4),
 )
 
 
+
+# Indicator colours -------------------------------------------------------
+
+indi_col <- readr::read_csv(here("data-raw/colours_indicators.csv"))
+
+
 # get data,clean and create sysobject -------------------------------------
 
 
@@ -173,6 +179,26 @@ gnh_data |>
   mutate(
     b = b*100
     )-> gnh_data_mod_sufficiency_in_indicators
+
+gnh_data_mod_sufficiency_in_indicators|>
+  left_join(indi_col, by = c("ind_lab" = "ind")) -> gnh_data_mod_sufficiency_in_indicators
+
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~contribution of indicators to happiness
+
+
+gnh_data |>
+  filter(measure_lab %in% c("Absolute contribution (suf. adj)",
+                                   "Relative contribution (suf. adj)" ) &
+                  area_lab %in% c("National","Urban","Rural"))|>
+  mutate(
+    b = b*100
+  ) -> gnh_data_mod_contribution_indicators_national
+
+
+gnh_data_mod_contribution_indicators_national|>
+  left_join(indi_col, by = c("ind_lab" = "ind")) -> gnh_data_mod_contribution_indicators_national
 
 
 
