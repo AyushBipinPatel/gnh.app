@@ -1,5 +1,10 @@
 ## code to to creatae internal data objects goes here
 
+library(here)
+library(dplyr)
+library(tidyr)
+
+
 
 
 # data for domain and indicator snakey chart ------------------------------
@@ -103,6 +108,68 @@ gnh_links$ln_grp <- c(rep("a",9),rep("b",4),
 )
 
 
+# get data,clean and create sysobject -------------------------------------
+
+
+gnh_data <- readr::read_csv(here("data-raw/gnh_2015_all_measures.csv"),
+                            col_select = c(1:23))
+
+# remove empty rows
+
+gnh_data |>
+  janitor::remove_empty("rows") -> gnh_data
+
+
+# ~~~~~~~~~~~~~~~~ primary measures data at national level
+
+
+gnh_data|>
+  filter(measure_lab %in% c("GNH (suf)","GNH/MPI (suf)",
+                            "Headcount ratio (suf)",
+                            "Headcount ratio (Not-Yet-Happy)",
+                            "Intensity (suf) among Nnot-Yet-Happy",
+                            "Intensity (suf) among Not-Yet-Happy") &
+           area_lab %in% c("Rural", "Urban", "National"))|>
+  mutate(
+    b = ifelse(measure_lab == "Headcount ratio (Not-Yet-Happy)",
+               1-b,b),
+    measure_lab = ifelse(measure_lab == "Headcount ratio (Not-Yet-Happy)",
+                         "Headcount ratio (suf)",measure_lab),
+    measure_lab = ifelse(measure_lab == "Intensity (suf) among Nnot-Yet-Happy",
+                         "Intensity (suf) among Not-Yet-Happy",
+                         measure_lab),
+    measure_lab = ifelse(measure_lab == "GNH/MPI (suf)",
+                         "GNH (suf)", measure_lab),
+    b = ifelse(measure_lab == "GNH (suf)",
+               b, b*100),
+    area_lab = forcats::fct_relevel(area_lab,c("National","Rural","Urban"))
+  ) -> gnh_data_mod_primary_measures
+
+
+
+
+
+
+gnh_data_mod_primary_measures |>
+  left_join(
+    gnh_data |>
+      filter(measure_lab == "Population share" &
+               area_lab %in% c("Rural", "Urban", "National"))|>
+      select(area_lab,measure_lab,share_val=b)|>
+      distinct()|>
+      mutate(
+        share_val = share_val*100
+      )|>
+      add_row(area_lab = "National",measure_lab ="Population share",share_val= 100),
+    by = c("area_lab" = "area_lab")
+  ) -> gnh_data_mod_primary_measures
+
+
+# ~~~~~~~~~~~~~~~~ sufficiency in indicators at national level
+
+gnh_data |>
+  filter(measure_lab %in% sort(unique(gnh_data$measure_lab))[c(6,35,37)] &
+                  area_lab %in% c("National", "Urban", "Rural")) -> gnh_data_mod_sufficiency_in_indicators
 
 
 
@@ -111,4 +178,6 @@ gnh_links$ln_grp <- c(rep("a",9),rep("b",4),
 
 usethis::use_data(gnh_links,
                   gnh_nodes,
+                  gnh_data_mod_primary_measures,
+                  gnh_data_mod_sufficiency_in_indicators,
                   overwrite = TRUE,internal = T)
