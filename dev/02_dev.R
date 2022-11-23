@@ -25,7 +25,7 @@ golem::add_module(name = "landing_page", with_test = FALSE) # module to add text
 golem::add_module(name = "primary_measures_national", with_test = FALSE) # module to present primary measures of the GNH at national level
 golem::add_module(name = "sufficiency_indicators_national", with_test = FALSE) # A module to show the uncensored and censored headcount ratios of sufficiency in indicators.
 golem::add_module(name = "contribution_indicators_national", with_test = FALSE) # A module to show the contribution of indicators to GNH at national level
-
+golem::add_module(name = "district_report", with_test = FALSE) # A module to present district report
 
 ## Add helper functions ----
 ## Creates fct_* and utils_*
