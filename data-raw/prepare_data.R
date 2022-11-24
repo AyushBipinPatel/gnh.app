@@ -305,5 +305,8 @@ usethis::use_data(gnh_links,
                   gnh_data_mod_primary_measures,
                   gnh_data_mod_primay_measures_district_overview,
                   gnh_data_mod_sufficiency_in_indicators,
+                  gnh_data_mod_sufficiency_in_indicators_district_overview,
+                  gnh_data_mod_contribution_indicators_national,
+                  gnh_data_mod_contribution_indicators_district_overview,
                   btn_poly_json,
                   overwrite = TRUE,internal = T)
