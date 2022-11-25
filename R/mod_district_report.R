@@ -265,7 +265,7 @@ mod_district_report_server <- function(id){
           dplyr::filter(region_lab == sel_dist())|>
           dplyr::select(b,ind_lab,measure_lab) |>
           tidyr::pivot_wider(names_from = measure_lab,values_from = b),
-        colnames = c("Indicator", "Relative Contribution (%)"),
+        colnames = c("Indicator","Absolute contribution (%)", "Relative Contribution (%)"),
         filter = list(position = 'top', clear = FALSE),
         options = list(
           pageLength = 33,
