@@ -117,7 +117,7 @@ indi_col <- readr::read_csv(here("data-raw/colours_indicators.csv"))
 # get data,clean and create sysobject -------------------------------------
 
 
-gnh_data <- readr::read_csv(here("data-raw/corrected_gnh_2015_all_measures.csv"),
+gnh_data <- readr::read_csv(here("data-raw/missing_ind_corrected_gnh_2015_all_measures.csv"),
                             col_select = c(1:23))
 
 # remove empty rows
