@@ -43,6 +43,11 @@ app_server <- function(input, output, session) {
   mod_d_comp_sufficiency_indicators_server("d_comp_sufficiency_indicators_1")
 
 
+  # District comparison contribution  of indicators -------------------------
+
+  mod_d_comp_contribution_indicators_server("d_comp_contribution_indicators_1")
+
+
 
 
 
