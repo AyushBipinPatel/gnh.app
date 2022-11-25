@@ -43,7 +43,9 @@ app_ui <- function(request) {
                           shiny::tabPanel(title = "Sufficiency in Indicators - District Comparison",
                                           mod_d_comp_sufficiency_indicators_ui("d_comp_sufficiency_indicators_1")
                                           ),
-                          shiny::tabPanel(title = "Contribution of Indicators - District Comparison"),
+                          shiny::tabPanel(title = "Contribution of Indicators - District Comparison",
+                                          mod_d_comp_contribution_indicators_ui("d_comp_contribution_indicators_1")
+                                          ),
 
                           )
 
