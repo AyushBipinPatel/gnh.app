@@ -147,7 +147,7 @@ gnh_data|>
     measure_lab = ifelse(measure_lab == "GNH/MPI (suf)",
                          "GNH (suf)", measure_lab),
     b = ifelse(measure_lab == "GNH (suf)",
-               b, b*100),
+               round(b,3), round(b*100,2)),
     area_lab = forcats::fct_relevel(area_lab,c("National","Rural","Urban"))
   ) -> gnh_data_mod_primary_measures
 
@@ -161,7 +161,7 @@ gnh_data_mod_primary_measures |>
       select(area_lab,measure_lab,share_val=b)|>
       distinct()|>
       mutate(
-        share_val = share_val*100
+        share_val = round(share_val*100,2)
       )|>
       add_row(area_lab = "National",measure_lab ="Population share",share_val= 100),
     by = c("area_lab" = "area_lab")
@@ -173,7 +173,7 @@ gnh_data|>
                             "Intensity (suf)") & !is.na(region_lab))|>
   mutate(
     b =  ifelse(measure_lab == "GNH (suf)",
-                b, b*100)
+                round(b,3),round(b*100,2))
   ) -> gnh_data_mod_primay_measures_district_overview
 
 gnh_data_mod_primay_measures_district_overview |>
@@ -184,7 +184,7 @@ gnh_data_mod_primay_measures_district_overview |>
       select(region_lab,share_val=b)|>
       distinct()|>
       mutate(
-        share_val = share_val*100
+        share_val = round(share_val*100,2)
       ),
     by = c("region_lab" = "region_lab")
   ) -> gnh_data_mod_primay_measures_district_overview
@@ -196,7 +196,7 @@ gnh_data |>
   filter(measure_lab %in% sort(unique(gnh_data$measure_lab))[c(6,36)] &
                   area_lab %in% c("National", "Urban", "Rural"))|>
   mutate(
-    b = b*100
+    b = round(b*100,2)
     )-> gnh_data_mod_sufficiency_in_indicators
 
 gnh_data_mod_sufficiency_in_indicators|>
@@ -206,7 +206,7 @@ gnh_data |>
   filter(measure_lab %in% sort(unique(gnh_data$measure_lab))[c(6,34)] &
            !is.na(region_lab))|>
   mutate(
-    b = b*100
+    b = round(b*100,2)
   ) -> gnh_data_mod_sufficiency_in_indicators_district_overview
 
 gnh_data_mod_sufficiency_in_indicators_district_overview |>
@@ -220,7 +220,7 @@ gnh_data_mod_sufficiency_in_indicators_district_overview |>
       select(region_lab,share_val=b)|>
       distinct()|>
       mutate(
-        share_val = share_val*100
+        share_val = round(share_val*100,2)
       ),
     by = c("region_lab" = "region_lab")
   )-> gnh_data_mod_sufficiency_in_indicators_district_overview
@@ -235,7 +235,7 @@ gnh_data |>
                                    "Relative contribution (suf. adj)" ) &
                   area_lab %in% c("National","Urban","Rural"))|>
   mutate(
-    b = b*100
+    b = ifelse(b<=0.005,round(b*100,5),round(b*100,2))
   ) -> gnh_data_mod_contribution_indicators_national
 
 
@@ -248,7 +248,7 @@ gnh_data |>
                             "Relative contribution (suf. adj)" ) &
            !is.na(region_lab))|>
   mutate(
-    b = b*100
+    b = ifelse(b<=0.005,round(b*100,5),round(b*100,2))
   ) -> gnh_data_mod_contribution_indicators_district_overview
 
 
@@ -261,7 +261,7 @@ gnh_data_mod_contribution_indicators_district_overview|>
       select(region_lab,share_val=b)|>
       distinct()|>
       mutate(
-        share_val = share_val*100
+        share_val = round(share_val*100,2)
       ),
     by = c("region_lab" = "region_lab")
     )-> gnh_data_mod_contribution_indicators_district_overview
