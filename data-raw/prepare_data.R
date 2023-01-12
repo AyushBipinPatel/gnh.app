@@ -9,7 +9,7 @@ library(tidyr)
 
 # data for domain and indicator snakey chart ------------------------------
 
-gnh_nodes <- data.frame(name = c("GNH","Psychological wellbeing (1/9)",
+gnh_nodes <- data.frame(name = c("GNH Index","Psychological wellbeing (1/9)",
                                  "Life satisfaction (1/3)",
                                  "Positive emotion (1/6)",
                                  "Negative emotion (1/6)",
