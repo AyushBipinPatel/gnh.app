@@ -9,7 +9,7 @@
 
 add_landing_page_info <- function() {
   shiny::tags$div(
-    shiny::tags$h1("Bhutan's Gross National Happiness Index"),
+    shiny::tags$h1("About Gross National Happiness Index"),
     shiny::tags$div(
       shiny::tags$p(
         "The phrase ‘gross national happiness’ was first coined by the 4th King of Bhutan, King Jigme Singye Wangchuck, in 1972 when he declared, “Gross National Happiness is more important than Gross Domestic Product.” The concept implies that sustainable development should take a holistic approach towards notions of progress and give equal importance to non-economic aspects of wellbeing. The king was awarded the Blue Planet Prize in the year 2022. This prize is awarded as a recognition of scientific research and its applicaitons that have helped to provide solution for global environmental problems."
