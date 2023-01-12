@@ -14,7 +14,18 @@ mod_sufficiency_indicators_national_ui <- function(id){
     shiny::fluidPage(
       shiny::tags$div(
         shiny::tags$h1("Suficiency in Indicators"),
-        shiny::tags$p("Breif description on the uncensored and censored sufficiency in indicators.")
+        shiny::tags$div(
+          shiny::tags$h2("Censored Headcount Ratio(%)"),
+          shiny::tags$p(
+            "A sufficiency cutoff has been identified to assess a person's level of sufficiency in each of the 33 indicators. Based on this cutoff, a person is either classifed as 'yes, sufficient' or as 'no, not sufficent'. The censored headcount ratio is simply the proportion of persons who not only enjoy sufficiency in the indicator but also have met the 'happiness threshold' which is sufficiency in at least 66% of the 33 weighted indicators."
+          )
+        ),
+        shiny::tags$div(
+          shiny::tags$h2("Uncensored Headcount Ratio(%)"),
+          shiny::tags$p(
+            "Based on the 'sufficiency cutoffs' assigned for each of the 33 indicators, people have been grouped into two categories that is 'yes, sufficient' or 'no, not sufficient'. The uncensored headcount ratio represents the proportion of persons who enjoy sufficiency in the respective indicators. Unlike the censored headcount ratio, these individuals include both those who have met or have not yet met the 'happiness threshold' which is sufficiency in at least 66% of the 33 weighted indicators."
+          )
+        )
       ),
       shiny::sidebarLayout(
         sidebarPanel =  shiny::sidebarPanel(
