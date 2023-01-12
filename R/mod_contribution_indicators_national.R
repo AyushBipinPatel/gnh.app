@@ -14,7 +14,14 @@ mod_contribution_indicators_national_ui <- function(id){
     shiny::fluidPage(
       shiny::tags$div(
         shiny::tags$h1("Contribution of Indicators to GNH"),
-        shiny::tags$p("Breif description on the contribution of indicatros to GNH.")
+        shiny::tags$div(
+          shiny::h2("Absolute Contribution to GNH Index"),
+          shiny::p("Depending on the average sufficiencies enjoyed, and whether these persons have met the 'happiness threshold', the absolute contribution to GNH Index refers to impact the sufficiencies in each of the 33 weighted indicators have on the GNH Index value. A higher value corresponds to a higher contribution to the index.")
+        ),
+        shiny::tags$div(
+          shiny::h2("Relative Contribution to GNH Index"),
+          shiny::p("The relative contribution to GNH Index represents the relative change in contributions made by the indicators to the 2022 index value in comparison to 2015. Similar to the absolute contribution estimate, higher values correspond to an improvement in the respective indicators.")
+        )
       ),
       shiny::sidebarLayout(
         sidebarPanel =  shiny::sidebarPanel(
