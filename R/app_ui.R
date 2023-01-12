@@ -17,7 +17,7 @@ app_ui <- function(request) {
                                 fg = "#000000",bg = "#ffffff",
                                 base_font = bslib::font_google("Source Sans Pro",local = TRUE),
                                 heading_font = bslib::font_google("Open Sans",local = TRUE)),
-        shiny::tabPanel(title = "About GNH",
+        shiny::tabPanel(title = "About GNH Index",
                         mod_landing_page_ui("landing_page_1")
                         ),
         shiny::navbarMenu(title = "National Level Results",
