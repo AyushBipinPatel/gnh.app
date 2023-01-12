@@ -118,7 +118,7 @@ mod_sufficiency_indicators_national_server <- function(id){
         x_axis = "ind_lab",
         y_axis = "b",
         colors = "ind_col",
-        title = paste0(chart_measure_title," for GNH indicators"),
+        title = paste0(chart_measure_title," for the 33 indicators of GNH indicators"),
         flname = paste0(chart_measure_title," for GNH indicators"), # same as the chart title as it would make sense to save a chart by its title
         tooltip = paste("Measure : ",chart_measure_title,"<br>Measure Value : {point.y}%<br>Survey : {point.survey} <br>Survey Year : {point.year}"),
         xtitle = NULL,
