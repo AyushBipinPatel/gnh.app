@@ -28,7 +28,19 @@ add_landing_page_info <- function() {
       ),
       shiny::tags$p(
         "Each of the domains are equally weighted and within domains, indicators also have relatively equal weighting. However, those indicators that have exibited higher statistical reliability and objectiveness have been given slightly higher weighting."
+      ),
+      shiny::tags$strong(shiny::tags$p("The GNH index includes nine domains.")),
+      shiny::tags$ul(
+        shiny::tags$li("Psychological wellbeing"),
+        shiny::tags$li("Health"),
+        shiny::tags$li("Education"),
+        shiny::tags$li("Time use"),
+        shiny::tags$li("Cultural diversity and resilience"),
+        shiny::tags$li("Good governance"),
+        shiny::tags$li("Community vitality"),
+        shiny::tags$li("Ecological diversity and resilience"),
+        shiny::tags$li("Living standards"),
+      )
       )
     )
-  )
 }
