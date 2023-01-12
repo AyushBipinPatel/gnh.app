@@ -20,7 +20,7 @@
 ##
 golem::fill_desc(
   pkg_name = "gnh.app", # The Name of the package containing the App
-  pkg_title = "Bhutan National Happiness Index", # The Title of the package containing the App
+  pkg_title = "Gross National Happiness Index", # The Title of the package containing the App
   pkg_description = "This is a golem app that presents the results of the Bhutan Gross National Happiness Survey.", # The Description of the package containing the App
   author_first_name = "Ayush", # Your First Name
   author_last_name = "Patel", # Your Last Name
