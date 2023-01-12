@@ -28,22 +28,6 @@ add_landing_page_info <- function() {
       ),
       shiny::tags$p(
         "Each of the domains are equally weighted and within domains, indicators also have relatively equal weighting. However, those indicators that have exibited higher statistical reliability and objectiveness have been given slightly higher weighting."
-      ),
-      shiny::tags$h2("Construciton of the GNH Index"),
-      shiny::tags$strong(shiny::tags$p("The GNH index includes nine domains.")),
-      shiny::tags$ul(
-        shiny::tags$li("Psychological wellbeing"),
-        shiny::tags$li("Health"),
-        shiny::tags$li("Education"),
-        shiny::tags$li("Time use"),
-        shiny::tags$li("Cultural diversity and resilience"),
-        shiny::tags$li("Good governance"),
-        shiny::tags$li("Community vitality"),
-        shiny::tags$li("Ecological diversity and resilience"),
-        shiny::tags$li("Living standards"),
-      ),
-      shiny::tags$p(
-        "There are 33 indicators in the 9 domains above and the Index seeks to measure the nation’s wellbeing directly by starting with each person’s achievements in each indicator. The GNH index is based on the Alkire-Foster method of multidimensional measurement, which has been adapted for this purpose. It identifies four groups of people – unhappy, narrowly happy, extensively happy, and deeply happy. The analysis explores the happiness people enjoy already, then focuses on how policies can increase happiness and sufficiency among the unhappy and narrowly happy people."
       )
     )
   )
