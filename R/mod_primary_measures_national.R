@@ -14,9 +14,18 @@ mod_primary_measures_national_ui <- function(id){
     shiny::fluidPage(
       shiny::tags$div(
         shiny::tags$h1("Primary Measures of the GNH Index"),
-        shiny::tags$p("Add description of GNH"),
-        shiny::tags$p("Add description of Headcount of happy people"),
-        shiny::tags$p("Add description of sufficiency of not yet happy people"),
+        shiny::tags$div(
+          shiny::tags$h2("GNH Index"),
+          shiny::tags$p("The GNH Index is single number composite index developed from 33 indicators grouped under the nine GNH domains. With a value ranging from zero to one, higher value represents a higher level of GNH in the country. It is an aggregation of three key estimates, the number of persons identified happy, the number of persons identified not-yet-happy and the average sufficiency among those who are not-yet-happy.")
+        ),
+        shiny::tags$div(
+          shiny::tags$h2("Headcount ratio of Happy People(%)"),
+          shiny::tags$p("The headcount of happy people represents the number of persons identified as happy that is the number of individuals who have met the 'happiness threshold' of enjoy sufficiency in at least 66% of the 33 weighted indicators or in at least six of the nine GNH domains. This headcount is the mirror image of the headcount ratio of not-yet-happy people.")
+        ),
+        shiny::tags$div(
+          shiny::h2("Average Sufficiency of not-yet-happy people"),
+          shiny::tags$p("The average sufficiency of not-yet-happy people constitutes the average number of sufficiencies that the persons have met in the not-yet-happy group.")
+        ),
       ),
       shiny::sidebarLayout(
         sidebarPanel = shiny::sidebarPanel(
